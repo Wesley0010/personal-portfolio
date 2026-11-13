@@ -1,0 +1,367 @@
+/* ==========================================
+   PERSONAL PORTFOLIO — STYLE.CSS
+   Colour scheme: white background, black text, blue accents
+   ========================================== */
+
+/* ===== 1. COLOUR VARIABLES ===== */
+:root {
+  --white: #ffffff;
+  --black: #111111;
+  --grey: #555555;
+  --light-grey: #f2f2f2;
+  --blue: #2563eb;
+  --blue-dark: #1e40af;
+}
+
+/* ===== 2. GLOBAL RESET & FONTS ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--white);
+  color: var(--black);
+  line-height: 1.7;
+}
+
+/* ===== 3. NAVIGATION BAR ===== */
+/* ===== 3. NAVIGATION BAR ===== */
+header {
+  position: sticky;      /* sticks to the top of the viewport while scrolling */
+  top: 0;
+  z-index: 1000;         /* stays above project cards and hero animation */
+  background-color: var(--white);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 6%;
+  background-color: var(--white);
+  border-bottom: 2px solid var(--blue);
+
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.logo:hover { color: var(--black); }
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.8rem;
+}
+
+.nav-links a {
+  color: var(--black);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--blue);
+  border-bottom: 2px solid var(--blue);
+}
+
+/* ===== 4. HERO SECTION (Home) ===== */
+.hero {
+  min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 6%;
+  animation: fadeIn 1s ease;       /* keyframe animation */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--blue);
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: var(--black);
+}
+
+.highlight { color: var(--blue); }
+
+.hero h2 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: var(--grey);
+  margin-bottom: 1rem;
+}
+
+.welcome {
+  max-width: 600px;
+  margin-bottom: 2rem;
+  color: var(--grey);
+}
+
+/* ===== 5. BUTTONS ===== */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: var(--blue);
+  color: var(--white);
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--black);
+  color: var(--white);
+  transform: translateY(-3px);
+}
+
+.btn.small {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+/* ===== 6. FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--light-grey);
+  border-top: 2px solid var(--blue);
+  font-size: 0.9rem;
+  color: var(--black);
+}
+
+footer a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+footer a:hover { text-decoration: underline; }
+
+/* ===== 7. PAGE LAYOUT (About / Projects / Animations) ===== */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 6%;
+}
+
+.page-title {
+  font-size: 2.3rem;
+  color: var(--blue);
+}
+
+.page h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  color: var(--black);
+}
+
+.page h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.page p { color: var(--grey); }
+
+.page hr {
+  border: none;
+  border-top: 2px solid var(--blue);
+  width: 80px;
+  margin: 1rem 0 2rem;
+}
+
+.page a { color: var(--blue); }
+
+.page a:hover { text-decoration: underline; }
+
+/* ===== 8. TABLE (About page) ===== */
+.edu-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.edu-table th,
+.edu-table td {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--blue);
+  text-align: left;
+}
+
+.edu-table th {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.edu-table tr:hover { background-color: var(--light-grey); }
+
+/* ===== 9. LISTS ===== */
+.page ul,
+.page ol {
+  margin-left: 1.5rem;
+  color: var(--grey);
+}
+
+.page ul li,
+.page ol li { margin-bottom: 0.5rem; }
+
+/* ===== 10. PROJECT CARDS (Grid + hover) ===== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background-color: var(--white);
+  border: 1px solid var(--blue);
+  border-radius: 8px;
+  overflow: hidden;
+  padding-bottom: 1.2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.card h2,
+.card p,
+.card .btn {
+  margin: 0.6rem 1.2rem;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  color: var(--blue);
+}
+
+.card p { color: var(--grey); }
+
+/* ===== 11. ANIMATED CONCEPTS ===== */
+
+/* --- 11a. Typing cursor --- */
+.typing-line {
+  font-size: 1.4rem;
+  color: var(--blue);
+  min-height: 2rem;
+}
+
+.cursor { animation: blink 0.8s step-end infinite; }
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* --- 11b. Animated gradient background --- */
+.animated-bg {
+  background: linear-gradient(-45deg, #ffffff, #dbeafe, #2563eb, #dbeafe);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+  border-radius: 8px;
+  padding: 2rem;
+  color: var(--black);
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- 11c. Animated skill bars --- */
+.skill { margin-bottom: 1.2rem; }
+
+.skill p {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+  color: var(--black);
+}
+
+.bar {
+  background-color: var(--light-grey);
+  border: 1px solid var(--blue);
+  border-radius: 20px;
+  height: 14px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background-color: var(--blue);
+  border-radius: 20px;
+  animation: growBar 1.8s ease forwards;
+}
+
+@keyframes growBar {
+  from { width: 0; }
+  /* width ends at the inline style value in the HTML */
+}
+
+/* --- 11d. Scroll reveal --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- 11e. Spacing between animation blocks --- */
+.anim-block { margin-bottom: 2.5rem; }
+
+/* ===== 12. RESPONSIVE (phones & tablets) ===== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .hero h1 { font-size: 2rem; }
+  .page-title { font-size: 1.8rem; }
+  .profile-pic { width: 140px; height: 140px; }
+}
